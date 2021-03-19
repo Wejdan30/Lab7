@@ -1,6 +1,6 @@
 ---
 title: "lab-07-simpsons.Rmd"
-author: "wejdan Abdulrhman Al-harthy"
+author: "Wejdan Abdulrhman Al-harthy"
 date: "17 March 2021"
 output: pdf_document
 ID: "2201001406 "
