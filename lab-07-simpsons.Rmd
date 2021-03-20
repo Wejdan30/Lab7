@@ -1,6 +1,6 @@
 ---
 title: "lab-07-simpsons.Rmd"
-author: "Wejdan Abdulrhman Al-harthy"
+author: "wejdan Abdulrhman Al-harthy"
 date: "17 March 2021"
 output: pdf_document
 ID: "2201001406 "
@@ -79,8 +79,13 @@ ggplot(Whickham, aes(x = age)) +
 
 ```{r plot_smokeVSincome_1}
 
-```
+ ggplot(data=Whickham, aes(x=smoker,y=outcome , color=outcome)) + geom_bar(stat = "identity")
 
+
+
+```
+ answer:
+ I expect the health condition will be worse and the person may die after a while, if he continues to smoke
 Knit, commit, and push to github.
 
 5. 
@@ -89,17 +94,27 @@ Knit, commit, and push to github.
 Whickham %>%
   count(smoker, outcome)
 ```
-
+ answer:
+ smoker (732) No ==== 31,4 (Dead)  >> (68.6) Alive
+ smoker (582) Yes ==== 23.8 (Dead) >> (76,2) Alive
+ This result is not expected since most of the people who have now died were not smokers
+ 
 6.
 
 ```{r age_cat}
+
+Whickham <- Whickham %>% mutate(age_cat = case_when(age <= 44 ~ "18-14" , age > 44 & age <= 64 ~ "45-64" , age > 64 ~ "65+"))
+
 
 ```
 
 7. 
 
 ```{r plot_smokeVSincome_3}
-
+ggplot(data =Whickham, aes(x=outcome, y= smoker,color=smoker, fill=age_cat)) + geom_bar(stat="identity") +facet_wrap(~age_cat)
 ```
+
+answer:
+what changes > the cateogory of the age it's appear to us and we see the most of dead people not smoker in age (65+).. but in age (45-46) and (18-44)the most dead people are smoker that is relationship between the smoking and helath not clearly but can say that your will be change to worst if you be smoker,Also, people who are still alive may not enjoy good health because it is possible that they suffer from some diseases.
 
 Knit, commit, and push to github.
